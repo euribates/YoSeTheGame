@@ -10,3 +10,6 @@ app = Flask(__name__)
 def main():
     return 'Hello Yose'
 
+@app.route('/ping')
+def ping():
+    return '{ "alive": true}'
