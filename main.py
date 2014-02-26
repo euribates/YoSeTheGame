@@ -25,12 +25,24 @@ def ping():
 @app.route('/primeFactors')
 def primeFactors():
     from primes import factors
-    number = int(request.args.get('number', 16))
-    r = Response(
-        json.dumps({
-            "number": number,
-            "decomposition" : factors(number)
-            }), 
-        mimetype="application/json"
-        )
-    return r
+    number = request.args.get('number', 16)
+    try:
+        number = int(number)
+        r = Response(
+            json.dumps({
+                "number": number,
+                "decomposition" : factors(number)
+                }), 
+            mimetype="application/json"
+            )
+        return r
+    except ValueError as err:
+        r = Response(
+            json.dumps({
+                "number": number,
+                "error" : 'not a number',
+                }), 
+            mimetype="application/json"
+            )
+        return r
+
