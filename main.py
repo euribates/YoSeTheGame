@@ -24,7 +24,18 @@ def ping():
 
 @app.route('/aboutme')
 def aboutme():
-    return render_template('aboutme.html')
+    return render_template('aboutme.html', 
+        title = 'YoSe ~ Acerca de mi'
+        )
+
+@app.route('/minesweeper')
+def minesweeper():
+    return render_template('minesweeper.html',
+        title = 'Minesweeper',
+        rows = range(1, 9),
+        cols = range(1, 9),
+        )
+
 
 @app.route('/primeFactors')
 def primeFactors():
