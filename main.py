@@ -22,6 +22,10 @@ def ping():
     r = Response('{ "alive": true}', mimetype="application/json")
     return r
 
+@app.route('/aboutme')
+def aboutme():
+    return render_template('aboutme.html')
+
 @app.route('/primeFactors')
 def primeFactors():
     from primes import factors
