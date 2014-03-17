@@ -18,7 +18,7 @@
     {% for row in rows %} 
     <tr>
         {% for col in cols %}
-        <td id="cell-{{ row }}x{{ col }}">{{ row }}&times;{{ col }}</td>
+        <td id="cell-{{ row }}x{{ col }}" class="lost">{{ row }}&times;{{ col }}</td>
         {% endfor %}
     </tr>
     {% endfor %}
