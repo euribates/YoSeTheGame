@@ -1,4 +1,5 @@
-load = function(data) {
+load = function() {
+    data = document.grid;
     jQuery.each(data, function (y, row) {
         jQuery.each(row, function (x, cell) {
             console.log('Checking', x, ',', y, 'cell', cell);
@@ -11,12 +12,8 @@ load = function(data) {
         });
     }
 
-/*
+
 jQuery(document).ready(function () {
-    load( [ ['bomb', 'empty', 'empty', 'empty' ], 
-            ['empty', 'empty', 'empty', 'empty' ], 
-            ['empty', 'empty', 'bomb', 'empty' ], 
-            ['empty', 'empty', 'empty', 'empty' ] 
-            ]);
+    load();
     });
 */
