@@ -17,12 +17,5 @@ load = function() {
 
 
 jQuery(document).ready(function () {
-    document.grid = [
-        ['bomb', 'empty', 'empty', 'empty', 'empty'],
-        ['empty', 'empty', 'empty', 'empty', 'empty'],
-        ['empty', 'empty', 'bomb', 'empty', 'empty'],
-        ['empty', 'empty', 'empty', 'empty', 'empty'],
-        ['empty', 'empty', 'empty', 'empty', 'empty']
-        ];
     load();
     });
