@@ -40,34 +40,28 @@ def minesweeper():
 @app.route('/primeFactors')
 def primeFactors():
     from primes import factors
-    number = request.args.get('number', 16)
-    try:
-        number = int(number)
-        if number > 1e6:
-            r = Response(
-                json.dumps({
+    numbers = request.args.getlist('number')
+    result = []
+    for number in numbers:
+        try:
+            number = int(number)
+            if number > 1e6:
+                result.append({
                     "number": number,
                     "error" : "too big number (>1e6)",
-                    }), 
-                mimetype="application/json"
-                )
-
-        else:
-            r = Response(
-                json.dumps({
+                    })
+            else:
+                result.append({
                     "number": number,
                     "decomposition" : factors(number)
-                    }), 
-                mimetype="application/json"
-                )
-        return r
-    except ValueError as err:
-        r = Response(
-            json.dumps({
+                    })
+
+        except ValueError as err:
+            result.append({
                 "number": number,
                 "error" : 'not a number',
-                }), 
-            mimetype="application/json"
-            )
-        return r
+                }) 
+
+    r = Response(json.dumps(result, indent=4), mimetype="application/json")
+    return r
 
