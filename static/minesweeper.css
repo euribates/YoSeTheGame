@@ -1,0 +1,8 @@
+td.lost {
+    background-color: red;
+    border: 1px solid red;
+}
+
+td {
+    border: 1px dotted silver;
+}
