@@ -16,4 +16,3 @@ load = function() {
 jQuery(document).ready(function () {
     load();
     });
-*/
