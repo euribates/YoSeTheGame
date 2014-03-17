@@ -1,12 +1,15 @@
+
 load = function() {
     data = document.grid;
     jQuery.each(data, function (y, row) {
-        jQuery.each(row, function (x, cell) {
-            console.log('Checking', x, ',', y, 'cell', cell);
-            if (cell == 'bomb') {
-                var id_cell = '#cell-' + (x+1) + 'x' + (y+1);
-                var cell = jQuery(id_cell);
-                cell.addClass('lost');
+        jQuery.each(row, function (x, stat) {
+            var id_cell = '#cell-' + (x+1) + 'x' + (y+1);
+            var cell = jQuery(id_cell);
+            if (stat == 'bomb') {
+                cell.click(function (evt) {
+                    var td = jQuery(evt.target);
+                    td.addClass('lost');
+                    });
                 }
             });
         });
@@ -14,5 +17,12 @@ load = function() {
 
 
 jQuery(document).ready(function () {
+    document.grid = [
+        ['bomb', 'empty', 'empty', 'empty', 'empty'],
+        ['empty', 'empty', 'empty', 'empty', 'empty'],
+        ['empty', 'empty', 'bomb', 'empty', 'empty'],
+        ['empty', 'empty', 'empty', 'empty', 'empty'],
+        ['empty', 'empty', 'empty', 'empty', 'empty']
+        ];
     load();
     });
